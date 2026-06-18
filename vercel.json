@@ -1,0 +1,81 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "tkbi.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/tkbi_about.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lkbi.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/lkbi_about.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lkam.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/lkam_about.html",
+      "permanent": true
+    }
+        {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lkcb.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/lkcb_about.html",
+      "permanent": true
+    }
+        {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lkt2.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/lkt2_about.html",
+      "permanent": true
+    }
+        {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "tkt2.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/tkt2_about.html",
+      "permanent": true
+    }
+        {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lknb.lifekidsandrainbow.id"
+        }
+      ],
+      "destination": "/locations/lknb_about.html",
+      "permanent": true
+    }
+  ]
+}
