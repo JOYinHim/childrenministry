@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Rainbow Bumi Indah - Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="../index.html" class="font-bold text-xl text-blue-600 hover:text-blue-800 transition">BBG Children Ministry</a>
+                <a href="tkbi_about.html" class="inline-flex items-center gap-2 rounded-full border border-yellow-300 bg-white px-4 py-2 text-sm font-semibold text-yellow-800 shadow-sm hover:bg-yellow-100 transition">
+                    <i class="fas fa-school"></i>
+                    <span class="lang-id">TK Rainbow Bumi Indah</span>
+                    <span class="lang-en hidden">Rainbow Bumi Indah Pre-school</span>
+                    <span class="lang-ko hidden">레인보우 부미인다 유치원</span>
+                </a>
+            </div>
+            <div class="space-x-4 text-xs font-semibold text-gray-600">
+                <button onclick="setLanguage('id')" id="btn-id" class="hover:text-blue-600 transition">IND</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('en')" id="btn-en" class="hover:text-blue-600 transition">ENG</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('ko')" id="btn-ko" class="hover:text-blue-600 transition">KOR</button>
+            </div>
+        </div>
+        <div class="bg-yellow-400 flex justify-center space-x-8 py-3 text-sm font-bold text-yellow-950">
+            <a href="tkbi_about.html" class="hover:text-white transition px-1">ABOUT</a>
+            <a href="tkbi_program.html" class="border-b-2 border-yellow-950 px-1">PROGRAM</a>
+            <a href="tkbi_gallery.html" class="hover:text-white transition px-1">GALLERY</a>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-900">
+                <span class="lang-id">Program TK Rainbow Bumi Indah</span><span class="lang-en hidden">TK Rainbow Bumi Indah Program</span><span class="lang-ko hidden">TK 레인보우 부미 인다 프로그램</span>
+            </h2>
+            <p class="text-gray-500 text-sm mt-2 max-w-2xl mx-auto">
+                <span class="lang-id">Kurikulum kreatif untuk anak usia dini agar berkembang secara akademis, sosial, dan spiritual.</span>
+                <span class="lang-en hidden">A creative curriculum for early learners to grow academically, socially, and spiritually.</span>
+                <span class="lang-ko hidden">어린이들이 학습, 사회성, 영성을 균형 있게 성장시키는 창의적 교육과정입니다.</span>
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+            <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                <h3 class="text-xl font-bold mb-4">Program Utama</h3>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Kegiatan Bahasa dan Literasi</span><span class="lang-en hidden">Language & Literacy</span><span class="lang-ko hidden">언어 및 문해 활동</span></span></li>
+                    <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Matematika Dasar dan Logika</span><span class="lang-en hidden">Basic Math & Logic</span><span class="lang-ko hidden">기초 수학 및 논리</span></span></li>
+                    <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Seni dan Ekspresi Kreatif</span><span class="lang-en hidden">Art & Creative Expression</span><span class="lang-ko hidden">미술 및 창의 표현</span></span></li>
+                    <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Aktivitas Motorik Halus dan Kasar</span><span class="lang-en hidden">Fine & Gross Motor Skills</span><span class="lang-ko hidden">소근육 및 대근육 활동</span></span></li>
+                    <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Nilai Kristiani dan Karakter</span><span class="lang-en hidden">Christian Values & Character</span><span class="lang-ko hidden">기독교적 가치와 인성</span></span></li>
+                </ul>
+            </section>
+
+            <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                <h3 class="text-xl font-bold mb-4">Jadwal Harian</h3>
+                <div class="space-y-4 text-gray-600 text-sm">
+                    <div>
+                        <p class="font-semibold">08:00 - 09:00</p>
+                        <p>Circle time, doa pagi, dan pengenalan tema.</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold">09:00 - 10:30</p>
+                        <p>Kegiatan literasi, berhitung, dan permainan sensorik.</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold">10:30 - 11:00</p>
+                        <p>Istirahat dan snack bersama.</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold">11:00 - 12:00</p>
+                        <p>Kegiatan seni, musik, dan gerak kreatif.</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold">12:00 - 13:00</p>
+                        <p>Doa makan dan pembelajaran karakter.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="mt-12 bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+            <h3 class="text-2xl font-bold mb-4">Keunggulan Program</h3>
+            <div class="grid gap-6 md:grid-cols-3 text-sm text-gray-600">
+                <div class="rounded-3xl border border-blue-100 bg-blue-50 p-5">
+                    <h4 class="font-bold mb-2">Lingkungan Aman</h4>
+                    <p>Ruang bermain dan kelas dirancang aman serta ramah anak untuk tumbuh dengan percaya diri.</p>
+                </div>
+                <div class="rounded-3xl border border-green-100 bg-green-50 p-5">
+                    <h4 class="font-bold mb-2">Pengajar Peduli</h4>
+                    <p>Staf berpengalaman dan penuh kasih mendampingi setiap anak dalam proses belajar.</p>
+                </div>
+                <div class="rounded-3xl border border-yellow-100 bg-yellow-50 p-5">
+                    <h4 class="font-bold mb-2">Belajar Kaya Warna</h4>
+                    <p>Kegiatan interaktif dan praktis membuat anak aktif berpikir dan bereksplorasi.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-12 bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+            <h3 class="text-2xl font-bold mb-4">Hubungi Kami</h3>
+            <p class="text-gray-600 text-sm mb-4">Untuk informasi pendaftaran dan tur gedung, silakan kunjungi halaman ABOUT atau hubungi kami di:</p>
+            <div class="grid gap-3 text-sm text-gray-700">
+                <p><span class="font-semibold">Alamat:</span> Pasar Kemis, Tangerang, Banten</p>
+                <p><span class="font-semibold">Telepon:</span> +62 21 1234 5678</p>
+                <p><span class="font-semibold">Email:</span> <a href="mailto:info@bbgfoundation.or.id" class="text-blue-600 hover:text-blue-800">info@bbgfoundation.or.id</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            ['id', 'en', 'ko'].forEach(l => {
+                const btn = document.getElementById('btn-' + l);
+                if(btn) { if (l === lang) btn.classList.add('text-blue-600', 'font-bold'); else btn.classList.remove('text-blue-600', 'font-bold'); }
+            });
+            localStorage.setItem('bbg-lang', lang);
+        }
+        document.addEventListener('DOMContentLoaded', () => { setLanguage(localStorage.getItem('bbg-lang') || 'id'); });
+    </script>
+</body>
+</html>

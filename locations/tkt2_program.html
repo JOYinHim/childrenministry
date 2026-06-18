@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Trans 2 - Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="../index.html" class="font-bold text-xl text-blue-600 hover:text-blue-800 transition">
+                    BBG Children Ministry
+                </a>
+                <a href="tkt2_about.html" class="inline-flex items-center gap-2 rounded-full border border-indigo-300 bg-white px-4 py-2 text-sm font-semibold text-indigo-800 shadow-sm hover:bg-indigo-100 transition">
+                    <i class="fas fa-school"></i>
+                    <span>TK Trans 2</span>
+                </a>
+                <div class="flex flex-wrap items-center gap-4 rounded-full bg-yellow-500 px-3 py-2 text-sm font-bold text-white">
+                    <a href="tkt2_about.html" class="hover:text-white transition px-1">ABOUT</a>
+                    <a href="tkt2_program.html" class="border-b-2 border-white px-1">PROGRAM</a>
+                    <a href="tkt2_gallery.html" class="hover:text-white transition px-1">GALLERY</a>
+                </div>
+            </div>
+            <div class="space-x-4 text-xs font-semibold text-gray-600">
+                <button onclick="setLanguage('id')" id="btn-id" class="hover:text-blue-600 transition">IND</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('en')" id="btn-en" class="hover:text-blue-600 transition">ENG</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('ko')" id="btn-ko" class="hover:text-blue-600 transition">KOR</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest bg-indigo-50 px-3 py-1 rounded-full">Program</span>
+            <h2 class="text-3xl font-bold text-gray-900 mt-3">TK Trans 2</h2>
+            <div class="w-12 h-1 bg-indigo-400 mx-auto mt-4 mb-8"></div>
+            <p class="text-gray-600 leading-relaxed text-base">
+                <span class="lang-id">Program TK Trans 2 dirancang untuk membantu anak-anak berkembang secara holistik dalam iman, kreativitas, dan kecerdasan sosial.</span>
+                <span class="lang-en hidden">The TK Trans 2 program is designed to support children's holistic development in faith, creativity, and social intelligence.</span>
+                <span class="lang-ko hidden">TK Trans 2 프로그램은 아이들의 신앙, 창의성, 사회적 지능의 전인적 발달을 지원하도록 설계되었습니다.</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid gap-8 lg:grid-cols-2">
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                        <span class="lang-id">Program Utama</span>
+                        <span class="lang-en hidden">Core Program</span>
+                        <span class="lang-ko hidden">핵심 프로그램</span>
+                    </h3>
+                    <ul class="space-y-4 text-gray-600 text-sm">
+                        <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Literasi Bahasa & Cerita</span><span class="lang-en hidden">Language & Storytelling</span><span class="lang-ko hidden">언어 및 스토리텔링</span></span></li>
+                        <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Matematika & Penemuan</span><span class="lang-en hidden">Math & Discovery</span><span class="lang-ko hidden">수학 및 탐구</span></span></li>
+                        <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Seni, Musik, dan Gerak</span><span class="lang-en hidden">Art, Music & Movement</span><span class="lang-ko hidden">미술, 음악 및 움직임</span></span></li>
+                        <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Permainan Motorik & Sensorik</span><span class="lang-en hidden">Motor & Sensory Play</span><span class="lang-ko hidden">운동 및 감각 활동</span></span></li>
+                        <li class="flex gap-3"><span class="font-bold text-blue-600">•</span><span><span class="lang-id">Nilai Kristiani & Karakter</span><span class="lang-en hidden">Christian Values & Character</span><span class="lang-ko hidden">기독교적 가치 및 인성</span></span></li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                        <span class="lang-id">Jadwal Harian</span>
+                        <span class="lang-en hidden">Daily Schedule</span>
+                        <span class="lang-ko hidden">일일 일정</span>
+                    </h3>
+                    <div class="space-y-5 text-gray-600 text-sm">
+                        <div>
+                            <p class="font-semibold">08:00 - 09:00</p>
+                            <p><span class="lang-id">Circle time, doa pagi, dan pengenalan tema.</span><span class="lang-en hidden">Circle time, morning prayer, and theme introduction.</span><span class="lang-ko hidden">써클 타임, 아침 기도, 주제 소개.</span></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">09:00 - 10:30</p>
+                            <p><span class="lang-id">Kegiatan literasi, berhitung, dan permainan sensorik.</span><span class="lang-en hidden">Literacy, counting, and sensory play.</span><span class="lang-ko hidden">문해, 숫자 활동 및 감각 놀이.</span></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">10:30 - 11:00</p>
+                            <p><span class="lang-id">Istirahat dan snack bersama.</span><span class="lang-en hidden">Snack time and rest.</span><span class="lang-ko hidden">간식 시간 및 휴식.</span></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">11:00 - 12:00</p>
+                            <p><span class="lang-id">Kegiatan seni, musik, dan gerak kreatif.</span><span class="lang-en hidden">Art, music, and creative movement.</span><span class="lang-ko hidden">미술, 음악 및 창의적 움직임.</span></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">12:00 - 13:00</p>
+                            <p><span class="lang-id">Doa makan dan pembelajaran karakter.</span><span class="lang-en hidden">Mealtime prayer and character lessons.</span><span class="lang-ko hidden">식사 기도 및 인성 교육.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                <span class="lang-id">Keunggulan Program</span><span class="lang-en hidden">Program Highlights</span><span class="lang-ko hidden">프로그램 장점</span>
+            </h3>
+            <div class="grid gap-6 md:grid-cols-3 text-sm text-gray-600">
+                <div class="rounded-3xl border border-blue-100 bg-blue-50 p-5">
+                    <h4 class="font-bold mb-2"><span class="lang-id">Lingkungan Aman</span><span class="lang-en hidden">Safe Environment</span><span class="lang-ko hidden">안전한 환경</span></h4>
+                    <p><span class="lang-id">Ruang bermain dan kelas dirancang aman serta ramah anak.</span><span class="lang-en hidden">Safe, child-friendly play and classroom spaces.</span><span class="lang-ko hidden">안전하고 아이 친화적인 놀이 및 교실 공간.</span></p>
+                </div>
+                <div class="rounded-3xl border border-green-100 bg-green-50 p-5">
+                    <h4 class="font-bold mb-2"><span class="lang-id">Guru Peduli</span><span class="lang-en hidden">Caring Teachers</span><span class="lang-ko hidden">세심한 교사</span></h4>
+                    <p><span class="lang-id">Tim pengajar terdiri dari tiga guru yang mendampingi anak dengan penuh perhatian.</span><span class="lang-en hidden">A team of three teachers accompanies each child with care.</span><span class="lang-ko hidden">세 명의 교사가 아이들을 세심하게 돌봅니다.</span></p>
+                </div>
+                <div class="rounded-3xl border border-yellow-100 bg-yellow-50 p-5">
+                    <h4 class="font-bold mb-2"><span class="lang-id">Belajar Interaktif</span><span class="lang-en hidden">Interactive Learning</span><span class="lang-ko hidden">참여형 학습</span></h4>
+                    <p><span class="lang-id">Aktivitas interaktif mendorong rasa ingin tahu dan eksplorasi anak.</span><span class="lang-en hidden">Interactive activities encourage curiosity and exploration.</span><span class="lang-ko hidden">참여형 활동으로 호기심과 탐구력을 키웁니다.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900 text-white rounded-t-[3rem]">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">
+                <span class="lang-id">Hubungi Kami</span><span class="lang-en hidden">Contact & Inquiry</span><span class="lang-ko hidden">입학 및 문의</span>
+            </h3>
+            <p class="text-gray-400 text-sm mb-8 max-w-2xl mx-auto">
+                <span class="lang-id">Silakan hubungi kami untuk pendaftaran siswa baru atau informasi program TK Trans 2.</span>
+                <span class="lang-en hidden">Please contact us for new student registration or TK Trans 2 program information.</span>
+                <span class="lang-ko hidden">TK Trans 2 프로그램 정보 및 입학 문의는 아래 연락처로 문의해주세요.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
+                <a href="https://open.kakao.com/o/xxxxxx" target="_blank" class="lang-ko flex items-center justify-center w-full py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl text-sm hover:opacity-90 transition">
+                    <i class="fas fa-comment mr-2"></i> 카카오톡 상담 연결
+                </a>
+                <a href="https://wa.me/628123456789?text=Halo%20TK%20Trans%202" target="_blank" class="flex items-center justify-center w-full py-3 bg-[#25D366] text-white font-bold rounded-xl text-sm hover:opacity-90 transition">
+                    <i class="fab fa-whatsapp mr-2 text-base"></i> WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            ['id', 'en', 'ko'].forEach(l => {
+                const btn = document.getElementById('btn-' + l);
+                if(btn) {
+                    if (l === lang) btn.classList.add('text-blue-600', 'font-bold'); else btn.classList.remove('text-blue-600', 'font-bold');
+                }
+            });
+            localStorage.setItem('bbg-lang', lang);
+        }
+        document.addEventListener('DOMContentLoaded', () => { setLanguage(localStorage.getItem('bbg-lang') || 'id'); });
+    </script>
+</body>
+</html>

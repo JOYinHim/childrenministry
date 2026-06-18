@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Rainbow Bumi Indah - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="../index.html" class="font-bold text-xl text-blue-600 hover:text-blue-800 transition">
+                    BBG Children Ministry
+                </a>
+                <a href="tkbi_about.html" class="inline-flex items-center gap-2 rounded-full border border-yellow-300 bg-white px-4 py-2 text-sm font-semibold text-yellow-800 shadow-sm hover:bg-yellow-100 transition">
+                    <i class="fas fa-school"></i>
+                    <span class="lang-id">TK Rainbow Bumi Indah</span>
+                    <span class="lang-en hidden">Rainbow Bumi Indah Pre-school</span>
+                    <span class="lang-ko hidden">레인보우 부미인다 유치원</span>
+                </a>
+                <div class="flex flex-wrap items-center gap-4 rounded-full bg-yellow-400 px-3 py-2 text-sm font-bold text-yellow-950">
+                    <a href="tkbi_about.html" class="border-b-2 border-yellow-950 px-1">ABOUT</a>
+                    <a href="tkbi_program.html" class="hover:text-white transition px-1">PROGRAM</a>
+                    <a href="tkbi_gallery.html" class="hover:text-white transition px-1">GALLERY</a>
+                </div>
+            </div>
+            <div class="space-x-4 text-xs font-semibold text-gray-600">
+                <button onclick="setLanguage('id')" id="btn-id" class="hover:text-blue-600 transition">IND</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('en')" id="btn-en" class="hover:text-blue-600 transition">ENG</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('ko')" id="btn-ko" class="hover:text-blue-600 transition">KOR</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest bg-yellow-50 px-3 py-1 rounded-full">Visi & Misi</span>
+            <h2 class="text-3xl font-bold text-gray-900 mt-3">
+                <span class="lang-id">TK Rainbow Bumi Indah</span>
+                <span class="lang-en hidden">Rainbow Bumi Indah Pre-school</span>
+                <span class="lang-ko hidden">레인보우 부미인다 유치원</span>
+            </h2>
+            <div class="w-12 h-1 bg-yellow-400 mx-auto mt-4 mb-8"></div>
+            
+            <div class="p-8 bg-gradient-to-br from-yellow-50/50 to-orange-50/30 rounded-3xl border border-yellow-100 shadow-sm">
+                <p class="text-gray-800 font-medium leading-relaxed text-lg">
+                    <span class="lang-id">Menjadi pondasi awal melalui pendidikan holistik untuk membesarkan murid muda Kristus yang mengasihi Tuhan serta sesama, agar mereka tumbuh dalam pengenalan akan Tuhan, memiliki karakter mulia, dan kesiapan belajar yang unggul.</span>
+                    <span class="lang-en hidden">To be the initial foundation through holistic education to raise young disciples of Christ who love God and their neighbors, growing in the knowledge of God, noble character, and excellent learning readiness.</span>
+                    <span class="lang-ko hidden">하나님과 이웃을 사랑하는 그리스도의 어린 제자를 키우는 전인격적인 교육을 지향하며, 아이들이 하나님을 아는 지식 안에서 자라나고 바른 성품과 탁월한 학습 준비도를 갖추도록 돕는 첫 디딤돌이 된다.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-10 text-center">
+                <span class="lang-id">Guru Kami</span><span class="lang-en hidden">Our Teachers</span><span class="lang-ko hidden">선생님 소개</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="rounded-3xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+                    <img src="../images/tk_bi_teachers1.jpeg" alt="Teacher group photo 1" class="w-full h-72 object-cover" onerror="this.src='https://via.placeholder.com/800x600'">
+                </div>
+                <div class="rounded-3xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+                    <img src="../images/tk_bi_teachers2.jpeg" alt="Teacher group photo 2" class="w-full h-72 object-cover" onerror="this.src='https://via.placeholder.com/800x600'">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center group hover:shadow-md transition">
+                    <div class="w-28 h-28 rounded-full bg-gray-200 mx-auto overflow-hidden mb-4 border-2 border-yellow-400">
+                        <img src="../images/tk_bi_ince.jpg" alt="Teacher" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-900">Ms. Ince</h4>
+                    <p class="text-xs text-yellow-600 font-semibold uppercase tracking-wider mt-0.5">
+                        <span class="lang-id">Kepala Sekolah</span><span class="lang-en hidden">Principal</span><span class="lang-ko hidden">원장 교사</span>
+                    </p>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed border-t pt-3">
+                        <span class="lang-id">S1 Teologi, S2 Pendidikan Agama Kristen<br>Melayani sejak tahun 2020</span>
+                        <span class="lang-en hidden">Master of Christian Religous Education<br>Serving since 2020</span>
+                        <span class="lang-ko hidden">교육학 석사 (PAUD)<br>2020년부터 사역 중</span>
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center group hover:shadow-md transition">
+                    <div class="w-28 h-28 rounded-full bg-gray-200 mx-auto overflow-hidden mb-4 border-2 border-yellow-400">
+                        <img src="../images/tk_bi_linda.jpg" alt="Teacher" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-900">Ms. Linda</h4>
+                    <p class="text-xs text-yellow-600 font-semibold uppercase tracking-wider mt-0.5">
+                        <span class="lang-id">Guru Kelas Playgroup</span><span class="lang-en hidden">Playgroup Class Teacher</span><span class="lang-ko hidden">영아반 담임 교사</span>
+                    </p>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed border-t pt-3">
+                        <span class="lang-id">S1 Pendidikan Agama Kristen<br>Melayani sejak tahun 2023</span>
+                        <span class="lang-en hidden">Bachelor of Christian Religous Education<br>Serving since 2023</span>
+                        <span class="lang-ko hidden">기독교 종교교육 학사<br>2023년부터 사역 중</span>
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center group hover:shadow-md transition">
+                    <div class="w-28 h-28 rounded-full bg-gray-200 mx-auto overflow-hidden mb-4 border-2 border-yellow-400">
+                        <img src="../images/tk_bi_sari.jpeg" alt="Teacher" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-900">Ms. Sari</h4>
+                    <p class="text-xs text-yellow-600 font-semibold uppercase tracking-wider mt-0.5">
+                        <span class="lang-id">Guru Kelas TK B</span><span class="lang-en hidden">Class B Teacher</span><span class="lang-ko hidden">B반 교사</span>
+                    </p>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed border-t pt-3">
+                        <span class="lang-id">S1 Pendidikan Agama Kristen<br>Melayani sejak tahun 2025</span>
+                        <span class="lang-en hidden">Bachelor of Christian Religous Education<br>Serving since 2025</span>
+                        <span class="lang-ko hidden">기독교 종교교육 학사<br>2025년부터 사역 중</span>
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center group hover:shadow-md transition">
+                    <div class="w-28 h-28 rounded-full bg-gray-200 mx-auto overflow-hidden mb-4 border-2 border-yellow-400">
+                        <img src="../images/tk_bi_dini.jpeg" alt="Teacher" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-900">Mr. Dini</h4>
+                    <p class="text-xs text-yellow-600 font-semibold uppercase tracking-wider mt-0.5">
+                        <span class="lang-id">Guru Kelas TK A</span><span class="lang-en hidden">Class A Teacher</span><span class="lang-ko hidden">A반 교사</span>
+                    </p>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed border-t pt-3">
+                        <span class="lang-id">S1 Pendidikan Agama Kristen<br>Melayani sejak tahun 2026</span>
+                        <span class="lang-en hidden">Bachelor of Christian Religous Education<br>Serving since 2026</span>
+                        <span class="lang-ko hidden">기독교 종교교육 학사<br>2026년부터 사역 중</span>
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center group hover:shadow-md transition">
+                    <div class="w-28 h-28 rounded-full bg-gray-200 mx-auto overflow-hidden mb-4 border-2 border-yellow-400">
+                        <img src="../images/tk_bi_novi.jpeg" alt="Teacher" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-900">Ms. Novi</h4>
+                    <p class="text-xs text-yellow-600 font-semibold uppercase tracking-wider mt-0.5">
+                        <span class="lang-id">Guru Pendamping</span><span class="lang-en hidden">Assistant Teacher</span><span class="lang-ko hidden">보조 교사</span>
+                    </p>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed border-t pt-3">
+                        <span class="lang-id">Mahasiswa Praktek Program S1<br>Melayani sejak tahun 2026</span>
+                        <span class="lang-en hidden">Practicum Student of Bachelor Program in Christian Religous Education<br>Serving since 2026</span>
+                        <span class="lang-ko hidden">기독교종교교육 학사과정 실습생<br>2026년부터 사역 중</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-10 text-center">
+                <span class="lang-id">Fasilitas & Ruangan</span><span class="lang-en hidden">Our Facilities</span><span class="lang-ko hidden">유치원 환경 및 시설</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="h-48 bg-gray-100 rounded-2xl overflow-hidden shadow-inner"><img src="../images/facility1.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400x300'"></div>
+                <div class="h-48 bg-gray-100 rounded-2xl overflow-hidden shadow-inner"><img src="../images/facility2.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400x300'"></div>
+                <div class="h-48 bg-gray-100 rounded-2xl overflow-hidden shadow-inner"><img src="../images/facility3.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400x300'"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900 text-white rounded-t-[3rem]">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">
+                <span class="lang-id">Hubungi Kami</span><span class="lang-en hidden">Contact & Inquiry</span><span class="lang-ko hidden">입학 및 사역 문의</span>
+            </h3>
+            <p class="text-gray-400 text-sm mb-8">
+                <span class="lang-id">Silakan hubungi kami untuk pendaftaran siswa baru atau dukungan pelayanan.</span>
+                <span class="lang-en hidden">Please contact us for new student registration or ministry partnerships.</span>
+                <span class="lang-ko hidden">신입생 입학 상담 및 사역 후원 관련 문의는 아래 채널로 편리하게 연락주세요.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
+                <a href="https://open.kakao.com/o/xxxxxx" target="_blank" class="lang-ko flex items-center justify-center w-full py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl text-sm hover:opacity-90 transition">
+                    <i class="fas fa-comment mr-2"></i> 카카오톡 상담 연결
+                </a>
+                <a href="https://wa.me/628123456789?text=Halo%20TK%20Bumi%20Indah" target="_blank" class="flex items-center justify-center w-full py-3 bg-[#25D366] text-white font-bold rounded-xl text-sm hover:opacity-90 transition">
+                    <i class="fab fa-whatsapp mr-2 text-base"></i> WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            ['id', 'en', 'ko'].forEach(l => {
+                const btn = document.getElementById('btn-' + l);
+                if(btn) {
+                    if (l === lang) btn.classList.add('text-blue-600', 'font-bold');
+                    else btn.classList.remove('text-blue-600', 'font-bold');
+                }
+            });
+            localStorage.setItem('bbg-lang', lang);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(localStorage.getItem('bbg-lang') || 'id');
+        });
+    </script>
+</body>
+</html>

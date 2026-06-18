@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifekids Amarasi - Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="../index.html" class="font-bold text-xl text-blue-600 hover:text-blue-800 transition">BBG Children Ministry</a>
+                <a href="#" class="inline-flex items-center gap-2 rounded-full border border-yellow-300 bg-white px-4 py-2 text-sm font-semibold text-yellow-800 shadow-sm hover:bg-yellow-100 transition">
+                    <i class="fas fa-child"></i>
+                    <span class="lang-id">Lifekids Amarasi</span>
+                    <span class="lang-en hidden">Lifekids Amarasi Center</span>
+                    <span class="lang-ko hidden">라이프키즈 아마라시 사역지</span>
+                </a>
+                <div class="flex flex-wrap items-center gap-4 rounded-full bg-green-500 px-3 py-2 text-sm font-bold text-white">
+                    <a href="lkam_about.html" class="hover:text-white transition px-1">ABOUT</a>
+                    <a href="lkam_gallery.html" class="border-b-2 border-yellow-950 px-1">GALLERY</a>
+                </div>
+            </div>
+            <div class="space-x-4 text-xs font-semibold text-gray-600">
+                <button onclick="setLanguage('id')" id="btn-id" class="hover:text-blue-600 transition">IND</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('en')" id="btn-en" class="hover:text-blue-600 transition">ENG</button>
+                <span class="text-gray-300">|</span>
+                <button onclick="setLanguage('ko')" id="btn-ko" class="hover:text-blue-600 transition">KOR</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <!-- 메인 대제목 영역 -->
+            <h2 class="text-2xl font-bold text-gray-900">
+                <span class="lang-id">Galeri Aktivitas Anak (Lifekids Amarasi)</span>
+                <span class="lang-en hidden">Lifekids Amarasi Activity Gallery</span>
+                <span class="lang-ko hidden">아마라시 사역지 활동 갤러리</span>
+            </h2>
+            
+            <!-- 소제목 영역 (언어 분리 구조화로 한국어 노출 오류 차단) -->
+            <p class="text-gray-500 text-xs mt-1">
+                <span class="lang-id">Album foto kegiatan edukasi dan aktivitas khusus anak-anak.</span>
+                <span class="lang-en hidden">Photo album of children's educational and special activities.</span>
+                <span class="lang-ko hidden">아이들의 생생한 교육 및 특별 활동 사진 앨범입니다.</span>
+            </p>
+        </div>
+
+        <!-- 🔵 동적 레이아웃 인젝션 컨테이너 -->
+        <div id="galleryContainer" class="space-y-16">
+            <div class="text-center text-sm text-gray-400 py-12">
+                <i class="fas fa-spinner fa-spin mr-2"></i> Loading Gallery...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 🔴 주의: 구글 앱스 스크립트(Amarasi용) 배포 후 생성된 고유 웹 앱 URL을 여기에 바인딩하세요.
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzB-IdehynRZKFu7lBaQ7u0DdY6gBA1UQJAXmP5bJMA8ujgsCz_5q-CSF3rFr7paeTX/exec";
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            ['id', 'en', 'ko'].forEach(l => {
+                const btn = document.getElementById('btn-' + l);
+                if(btn) { if (l === lang) btn.classList.add('text-blue-600', 'font-bold'); else btn.classList.remove('text-blue-600', 'font-bold'); }
+            });
+            localStorage.setItem('bbg-lang', lang);
+        }
+
+        async function loadGallery() {
+            const container = document.getElementById('galleryContainer');
+            try {
+                const response = await fetch(`${GAS_WEB_APP_URL}?action=getGallery`);
+                const data = await response.json();
+                
+                if (data.length === 0) {
+                    container.innerHTML = '<div class="text-center text-sm text-gray-400 py-12">Tidak ada foto yang ditemukan / 등록된 사진이 없습니다.</div>';
+                    return;
+                }
+
+                container.innerHTML = '';
+
+                data.forEach(item => {
+                    const eventSection = document.createElement('div');
+                    eventSection.className = "bg-white p-6 rounded-3xl shadow-sm border border-gray-100";
+                    
+                    const isMusic = item.event.toLowerCase().includes('musik') || item.event.toLowerCase().includes('music');
+                    const iconClass = isMusic ? "fas fa-music text-yellow-500" : "fas fa-calendar-alt text-yellow-500";
+
+                    let imgGridHtml = '';
+                    item.images.forEach(imgUrl => {
+                        imgGridHtml += `
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
+                                <img src="${imgUrl}" class="w-full h-full object-cover" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/300'">
+                            </div>
+                        `;
+                    });
+
+                    eventSection.innerHTML = `
+                        <div class="flex items-center space-x-2 mb-4 text-gray-900">
+                            <i class="${iconClass}"></i>
+                            <h3 class="font-bold text-lg">${item.event}</h3>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            ${imgGridHtml}
+                        </div>
+                    `;
+                    container.appendChild(eventSection);
+                });
+
+                setLanguage(localStorage.getItem('bbg-lang') || 'id');
+
+            } catch (error) {
+                console.error("Gallery Render Failed:", error);
+                container.innerHTML = '<div class="text-center text-sm text-red-400 py-12">⚠️ Gagal memuat galeri. Periksa konfigurasi URL API.</div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { 
+            loadGallery();
+        });
+    </script>
+</body>
+</html>
