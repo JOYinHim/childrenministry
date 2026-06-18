@@ -32,8 +32,8 @@
       ],
       "destination": "/locations/lkam_about.html",
       "permanent": true
-    }
-        {
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -43,8 +43,8 @@
       ],
       "destination": "/locations/lkcb_about.html",
       "permanent": true
-    }
-        {
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -54,8 +54,8 @@
       ],
       "destination": "/locations/lkt2_about.html",
       "permanent": true
-    }
-        {
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -65,8 +65,8 @@
       ],
       "destination": "/locations/tkt2_about.html",
       "permanent": true
-    }
-        {
+    },
+    {
       "source": "/",
       "has": [
         {
