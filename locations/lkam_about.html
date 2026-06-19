@@ -36,6 +36,60 @@
             position: relative; /* biarkan mengisi tinggi wrapper */
         }
     </style>
+    <script>
+    // 현재 몇 번째 슬라이드가 켜져 있는지 기억하는 변수
+    let currentQuoteIndex = 0;
+    let quoteTimer = null;
+
+    function goToQuoteSlide(index) {
+        const slides = document.querySelectorAll('.quote-slide');
+        const dots = document.querySelectorAll('.dot-btn');
+        
+        if (slides.length === 0) return;
+
+        // 인덱스가 범위를 벗어나지 않도록 현재 위치 업데이트
+        currentQuoteIndex = index;
+
+        // 1. 모든 슬라이드 활성화 마크 지우기
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // 2. 모든 인디케이터 점 초기화
+        dots.forEach(dot => {
+            dot.classList.remove('bg-green-500', 'w-4');
+            dot.classList.add('bg-gray-300', 'w-2');
+        });
+
+        // 3. 현재 순서의 슬라이드와 점만 켜기
+        slides[currentQuoteIndex].classList.add('active');
+        dots[currentQuoteIndex].classList.remove('bg-gray-300', 'w-2');
+        dots[currentQuoteIndex].classList.add('bg-green-500', 'w-4');
+
+        // 💡 [추가] 사용자가 손으로 점을 누르면 타이머를 리셋해서 흐름이 꼬이지 않게 방지
+        resetQuoteTimer();
+    }
+
+    // 🕒 4초마다 다음 슬라이드로 자동으로 넘겨주는 함수
+    function startQuoteTimer() {
+        quoteTimer = setInterval(() => {
+            const slides = document.querySelectorAll('.quote-slide');
+            if (slides.length === 0) return;
+            
+            // 다음 슬라이드 번호 계산 (끝까지 가면 다시 0번으로 복귀)
+            let nextIndex = (currentQuoteIndex + 1) % slides.length;
+            goToQuoteSlide(nextIndex);
+        }, 4000); // 4000은 4초를 의미합니다. (3초를 원하시면 3000으로 변경)
+    }
+
+    function resetQuoteTimer() {
+        clearInterval(quoteTimer);
+        startQuoteTimer();
+    }
+
+    // 웹사이트가 로딩 완료되면 자동으로 타이머 가동 시작
+    document.addEventListener('DOMContentLoaded', () => {
+        startQuoteTimer();
+    });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 

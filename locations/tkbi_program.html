@@ -10,6 +10,87 @@
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
         body { font-family: 'Noto Sans KR', sans-serif; }
     </style>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+
+        /* Slider: hanya satu slide tampil, tidak boleh ada height collapse */
+        .quote-wrapper {
+            position: relative;
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quote-slide {
+            position: absolute;
+            width: 100%;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            opacity: 0;
+            transform: scale(0.97);
+            pointer-events: none;
+        }
+        .quote-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            position: relative; /* biarkan mengisi tinggi wrapper */
+        }
+    </style>
+    <!-- ⚙️ 자동 타이머 엔진 스크립트 -->
+<script>
+    // 현재 몇 번째 슬라이드가 켜져 있는지 기억하는 변수
+    let currentQuoteIndex = 0;
+    let quoteTimer = null;
+
+    function goToQuoteSlide(index) {
+        const slides = document.querySelectorAll('.quote-slide');
+        const dots = document.querySelectorAll('.dot-btn');
+        
+        if (slides.length === 0) return;
+
+        // 인덱스가 범위를 벗어나지 않도록 현재 위치 업데이트
+        currentQuoteIndex = index;
+
+        // 1. 모든 슬라이드 활성화 마크 지우기
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // 2. 모든 인디케이터 점 초기화
+        dots.forEach(dot => {
+            dot.classList.remove('bg-green-500', 'w-4');
+            dot.classList.add('bg-gray-300', 'w-2');
+        });
+
+        // 3. 현재 순서의 슬라이드와 점만 켜기
+        slides[currentQuoteIndex].classList.add('active');
+        dots[currentQuoteIndex].classList.remove('bg-gray-300', 'w-2');
+        dots[currentQuoteIndex].classList.add('bg-green-500', 'w-4');
+
+        // 💡 [추가] 사용자가 손으로 점을 누르면 타이머를 리셋해서 흐름이 꼬이지 않게 방지
+        resetQuoteTimer();
+    }
+
+    // 🕒 4초마다 다음 슬라이드로 자동으로 넘겨주는 함수
+    function startQuoteTimer() {
+        quoteTimer = setInterval(() => {
+            const slides = document.querySelectorAll('.quote-slide');
+            if (slides.length === 0) return;
+            
+            // 다음 슬라이드 번호 계산 (끝까지 가면 다시 0번으로 복귀)
+            let nextIndex = (currentQuoteIndex + 1) % slides.length;
+            goToQuoteSlide(nextIndex);
+        }, 4000); // 4000은 4초를 의미합니다. (3초를 원하시면 3000으로 변경)
+    }
+
+    function resetQuoteTimer() {
+        clearInterval(quoteTimer);
+        startQuoteTimer();
+    }
+
+    // 웹사이트가 로딩 완료되면 자동으로 타이머 가동 시작
+    document.addEventListener('DOMContentLoaded', () => {
+        startQuoteTimer();
+    });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -41,8 +122,48 @@
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
-        
+<!--    <main class="max-w-6xl mx-auto px-4 py-12 space-y-16"> -->
+    
+        <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 shadow-sm rounded-3xl border border-gray-100 p-8 md:p-12 bg-gradient-to-br from-green-50/40 to-blue-50/20">
+    
+                <div class="quote-wrapper max-w-3xl mx-auto">
+
+                <!-- Slide 1 -->
+                <div class="quote-slide active space-y-3">
+                    <p class="lang-id text-lg md:text-xl text-gray-800 font-medium leading-relaxed italic">
+                        "Didiklah orang muda menurut jalan yang patut baginya, maka pada masa tuanya pun ia tidak akan menyimpang dari jalan itu."
+                    </p>
+                    <p class="lang-en hidden text-lg md:text-xl text-gray-800 font-medium leading-relaxed italic">
+                        "Start children off on the way they should go, and even when they are old they will not turn from it."
+                    </p>
+                    <p class="lang-ko hidden text-lg md:text-xl text-gray-800 font-medium leading-relaxed italic">
+                        "마땅히 행할 길을 아이에게 가르치라 그리하면 늙어도 그것을 떠나지 아니하리라."
+                    </p>
+                    <p class="lang-id text-xs font-bold text-green-600 uppercase tracking-widest">(Amsal 22:6, TB2)</p>
+                    <p class="lang-en hidden text-xs font-bold text-green-600 uppercase tracking-widest">(Prov. 22:6, NIV)</p>
+                    <p class="lang-ko hidden text-xs font-bold text-green-600 uppercase tracking-widest">(잠언 22:6)</p>
+                </div>
+
+                <!-- Slide 2 -->
+
+                <div class="quote-slide space-y-4">
+                    <p class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent tracking-tight">
+                        Children Today! Leaders Tomorrow!
+                    </p>
+                    <p class="text-lg font-bold text-gray-700 uppercase tracking-wider">Yes, Yes, Yes!</p>
+                </div>
+
+            </div>
+       
+
+            <!-- Dots -->
+            <div class="flex justify-center space-x-2 mt-8">
+                <span class="dot w-4 h-2 rounded-full bg-green-500 transition-all duration-300 cursor-pointer" onclick="goToSlide(0)"></span>
+                <span class="dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 cursor-pointer" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+
         <section class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
             <div class="text-center mb-10">
                 <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest block mb-2">Core Value &amp; Schedule</span>
@@ -172,7 +293,7 @@
                     <div class="space-y-3">
                         <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full uppercase">Program 02</span>
                         <h3 class="text-xl font-bold text-gray-900">
-                            <span class="lang-id">2. Special Me</span>
+                            <span class="lang-id">2. Special Me (Program Inggris)</span>
                             <span class="lang-en hidden">2. Special Me (English Program)</span>
                             <span class="lang-ko hidden">2. 스페셜 미 (Special Me) 영어 교실</span>
                         </h3>
@@ -193,7 +314,7 @@
                         <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-1 rounded-full uppercase">Program 03</span>
                         <h3 class="text-xl font-bold text-gray-900">
                             <span class="lang-id">3. Fun Art</span>
-                            <span class="lang-en hidden">3. Fun & Creative Art</span>
+                            <span class="lang-en hidden">3. Fun Art</span>
                             <span class="lang-ko hidden">3. 즐거운 미술</span>
                         </h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
