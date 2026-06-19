@@ -168,7 +168,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-900 text-white rounded-t-[3rem]">
+<section class="py-16 bg-gray-900 text-white rounded-t-[3rem]">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h3 class="text-2xl font-bold mb-4">
                 <span class="lang-id">Hubungi Kami</span><span class="lang-en hidden">Contact & Inquiry</span><span class="lang-ko hidden">입학 및 사역 문의</span>
@@ -189,20 +189,42 @@
         </div>
     </section>
 
+    <footer class="bg-gray-100 border-t py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 BBG Foundation. All Rights Reserved.</p>
+    </footer>
+
     <script>
         function setLanguage(lang) {
-            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            // 모든 언어 요소를 숨김 처리
+            document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // 선택한 언어 요소만 숨김 해제 (단, 카카오톡 버튼 등 특정 언어 전용 클래스 대응)
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                if (el.classList.contains('lang-ko') && lang !== 'ko') {
+                    el.classList.add('hidden');
+                } else {
+                    el.classList.remove('hidden');
+                }
+            });
+
+            // 상단 메뉴 버튼 활성화 색상 처리 변경 규칙
             ['id', 'en', 'ko'].forEach(l => {
                 const btn = document.getElementById('btn-' + l);
                 if(btn) {
-                    if (l === lang) btn.classList.add('text-blue-600', 'font-bold');
-                    else btn.classList.remove('text-blue-600', 'font-bold');
+                    if (l === lang) {
+                        btn.classList.add('text-blue-600', 'font-bold');
+                    } else {
+                        btn.classList.remove('text-blue-600', 'font-bold');
+                    }
                 }
             });
             localStorage.setItem('bbg-lang', lang);
         }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // 브라우저 기억 장치나 메인에서 세팅된 언어를 가져와 기본값 처리
             setLanguage(localStorage.getItem('bbg-lang') || 'id');
         });
     </script>
