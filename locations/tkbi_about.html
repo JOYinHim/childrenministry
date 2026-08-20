@@ -40,26 +40,70 @@
             </div>
         </div>
     </nav>
-
+<!-- [수정본] Visi & Misi + 세로 사진 좌우 분할 레이아웃 -->
     <section class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest bg-yellow-50 px-3 py-1 rounded-full">Visi & Misi</span>
-            <h2 class="text-3xl font-bold text-gray-900 mt-3">
-                <span class="lang-id">TK Rainbow Bumi Indah</span>
-                <span class="lang-en hidden">Bumi Indah Rainbow Pre-school</span>
-                <span class="lang-ko hidden">부미인다 레인보우 유치원</span>
-            </h2>
-            <div class="w-12 h-1 bg-yellow-400 mx-auto mt-4 mb-8"></div>
+        <div class="max-w-6xl mx-auto px-4">
             
-            <div class="p-8 bg-gradient-to-br from-yellow-50/50 to-orange-50/30 rounded-3xl border border-yellow-100 shadow-sm">
-                <p class="text-gray-800 font-medium leading-relaxed text-lg">
-                    <span class="lang-id">Menjadi pondasi awal melalui pendidikan holistik untuk membesarkan murid muda Kristus yang mengasihi Tuhan serta sesama, agar mereka tumbuh dalam pengenalan akan Tuhan, memiliki karakter mulia, dan kesiapan belajar yang unggul.</span>
-                    <span class="lang-en hidden">To be the initial foundation through holistic education to raise young disciples of Christ who love God and their neighbors, growing in the knowledge of God, noble character, and excellent learning readiness.</span>
-                    <span class="lang-ko hidden">하나님과 이웃을 사랑하는 그리스도의 어린 제자를 키우는 전인격적인 교육을 지향하며, 아이들이 하나님을 아는 지식 안에서 자라나고 바른 성품과 탁월한 학습 준비도를 갖추도록 돕는 첫 디딤돌이 된다.</span>
-                </p>
+            <!-- 섹션 헤더 -->
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest bg-yellow-50 px-3 py-1 rounded-full">Visi & Misi</span>
+                <h2 class="text-3xl font-bold text-gray-900 mt-3">
+                    <span class="lang-id">TK Rainbow Bumi Indah</span>
+                    <span class="lang-en hidden">Bumi Indah Rainbow Pre-school</span>
+                    <span class="lang-ko hidden">부미인다 레인보우 유치원</span>
+                </h2>
+                <div class="w-12 h-1 bg-yellow-400 mx-auto mt-4"></div>
             </div>
+
+            <!-- 🌟 좌우 Split 그리드 (왼쪽: 세로 사진 / 오른쪽: 비전 카드) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- 왼쪽: 세로 사진 영역 (5열 차지) -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
+                        <!-- aspect-[4/5] 속성을 활용해 세로 사진의 비율을 안정적으로 유지합니다 -->
+                        <img src="../images/tkrainbowbi2.jpeg" alt="TK Rainbow Bumi Indah Children and Building" class="w-full h-[480px] lg:h-[520px] object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <!-- 사진 하단 그라데이션 및 캡션 뱃지 -->
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 text-white">                            
+                            <!-- 하단 설명 텍스트 다국어화 -->
+                            <p class="text-sm font-bold mt-2">
+                                <span class="lang-id">Gedung & Anak-anak TK Rainbow</span>
+                                <span class="lang-en hidden">Building & Children of Rainbow Preschool</span>
+                                <span class="lang-ko hidden">레인보우 유치원 전경 및 어린이들</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 비전 & 사명 설명 카드 (7열 차지) -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <div class="p-8 md:p-10 bg-gradient-to-br from-yellow-50/60 via-orange-50/30 to-white rounded-3xl border border-yellow-100 shadow-sm relative">
+                        
+                        <div class="w-12 h-12 bg-yellow-400/20 text-yellow-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">
+                            <span class="lang-id">Visi & Misi</span>
+                            <span class="lang-en hidden">Vision & Mision</span>
+                            <span class="lang-ko hidden">비전 & 미션</span>
+                        </h3>
+
+                        <p class="text-gray-800 font-medium leading-relaxed text-base md:text-lg">
+                            <span class="lang-id">Menjadi pondasi awal melalui pendidikan holistik untuk membesarkan murid muda Kristus yang mengasihi Tuhan serta sesama, agar mereka tumbuh dalam pengenalan akan Tuhan, memiliki karakter mulia, dan kesiapan belajar yang unggul.</span>
+                            <span class="lang-en hidden">To be the initial foundation through holistic education to raise young disciples of Christ who love God and their neighbors, growing in the knowledge of God, noble character, and excellent learning readiness.</span>
+                            <span class="lang-ko hidden">하나님과 이웃을 사랑하는 그리스도의 어린 제자를 키우는 전인격적인 교육을 지향하며, 아이들이 하나님을 아는 지식 안에서 자라나고 바른 성품과 탁월한 학습 준비도를 갖추도록 돕는 첫 디딤돌이 된다.</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
+
 
     <section class="py-16 bg-gray-50 border-t border-gray-100">
         <div class="max-w-6xl mx-auto px-4">
