@@ -59,7 +59,6 @@
     </main>
 
     <script>
-        // 🔴 주의: 구글 앱스 스크립트 배포 후 생성된 웹 앱 URL을 여기에 붙여넣으세요.
         const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxb68UI-8PwJU2FV2fkePio4TrT4m4jrmY9dxDRD40Xahx6nLU2yJkf6bvEz6ZtAdWN/exec";
 
         function setLanguage(lang) {
@@ -72,7 +71,6 @@
             localStorage.setItem('bbg-lang', lang);
         }
 
-        // 실시간으로 구글 드라이브 데이터를 가져와 화면에 그리는 함수
         async function loadGallery() {
             const container = document.getElementById('galleryContainer');
             try {
@@ -80,28 +78,37 @@
                 const data = await response.json();
                 
                 if (data.length === 0) {
-                    container.innerHTML = '<div class="text-center text-sm text-gray-400 py-12">등록된 사진이 없습니다.</div>';
+                    container.innerHTML = '<div class="text-center text-sm text-gray-400 py-12">등록된 사진이나 영상이 없습니다.</div>';
                     return;
                 }
 
-                container.innerHTML = ''; // 로딩 메시지 제거
+                container.innerHTML = '';
 
                 data.forEach(item => {
-                    // 행사 카드 레이아웃 생성
                     const eventSection = document.createElement('div');
                     eventSection.className = "bg-white p-6 rounded-3xl shadow-sm border border-gray-100";
                     
-                    // 아이콘 세팅 (음악 클래스일 경우 음표, 그 외에는 달력 아이콘)
-                    const isMusic = item.event.toLowerCase().includes('musik') || item.event.toLowerCase().includes('music');
-                    const iconClass = isMusic ? "fas fa-music text-yellow-500" : "fas fa-calendar-alt text-yellow-500";
+                    // 폴더 안에 동영상이 하나라도 포함되어 있으면 비디오 아이콘 표시
+                    const hasVideo = item.media.some(m => m.type === 'video');
+                    const iconClass = hasVideo ? "fas fa-video text-red-500" : "fas fa-calendar-alt text-yellow-500";
 
-                    let imgGridHtml = '';
-                    item.images.forEach(imgUrl => {
-                        imgGridHtml += `
-                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
-                                <img src="${imgUrl}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300'">
-                            </div>
-                        `;
+                    let mediaGridHtml = '';
+                    item.media.forEach(m => {
+                        if (m.type === 'video') {
+                            // 🎬 구글 드라이브 동영상 플레이어 타일
+                            mediaGridHtml += `
+                                <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-md col-span-2">
+                                    <iframe src="${m.url}" class="w-full h-full" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            `;
+                        } else {
+                            // 🖼️ 사진 타일
+                            mediaGridHtml += `
+                                <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
+                                    <img src="${m.url}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300'">
+                                </div>
+                            `;
+                        }
                     });
 
                     eventSection.innerHTML = `
@@ -109,14 +116,13 @@
                             <i class="${iconClass}"></i>
                             <h3 class="font-bold text-lg">${item.event}</h3>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            ${imgGridHtml}
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+                            ${mediaGridHtml}
                         </div>
                     `;
                     container.appendChild(eventSection);
                 });
 
-                // 갤러리 빌드 완료 후 언어 설정 재적용
                 setLanguage(localStorage.getItem('bbg-lang') || 'id');
 
             } catch (error) {
