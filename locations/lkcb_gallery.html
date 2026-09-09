@@ -59,9 +59,9 @@
         </div>
     </main>
 
+    
     <script>
-        // 🔴 주의: 구글 앱스 스크립트(Cibubur용) 배포 후 생성된 고유 웹 앱 URL을 여기에 바인딩하세요.
-        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyqKv27UYpucz_1BEX3Va_byyfNYMn86FC2IgN71Adj8jpd8D90U5S8D6iQitDWx7Q/exec";
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyIQ_sRbnw5N1Fo0DlWLarfH9w-1qSa1eB6QoOXHJFDOf3w7mkXxUgHcH0PzL4f1yk/exec";
 
         function setLanguage(lang) {
             document.querySelectorAll('.lang-id, .lang-en, .lang-ko').forEach(el => el.classList.add('hidden'));
@@ -80,7 +80,7 @@
                 const data = await response.json();
                 
                 if (data.length === 0) {
-                    container.innerHTML = '<div class="text-center text-sm text-gray-400 py-12">Tidak ada foto yang ditemukan / 등록된 사진이 없습니다.</div>';
+                    container.innerHTML = '<div class="text-center text-sm text-gray-400 py-12">등록된 사진이나 영상이 없습니다.</div>';
                     return;
                 }
 
@@ -90,16 +90,27 @@
                     const eventSection = document.createElement('div');
                     eventSection.className = "bg-white p-6 rounded-3xl shadow-sm border border-gray-100";
                     
-                    const isMusic = item.event.toLowerCase().includes('musik') || item.event.toLowerCase().includes('music');
-                    const iconClass = isMusic ? "fas fa-music text-yellow-500" : "fas fa-calendar-alt text-yellow-500";
+                    // 폴더 안에 동영상이 하나라도 포함되어 있으면 비디오 아이콘 표시
+                    const hasVideo = item.media.some(m => m.type === 'video');
+                    const iconClass = hasVideo ? "fas fa-video text-red-500" : "fas fa-calendar-alt text-yellow-500";
 
-                    let imgGridHtml = '';
-                    item.images.forEach(imgUrl => {
-                        imgGridHtml += `
-                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
-                                <img src="${imgUrl}" class="w-full h-full object-cover" referrerpolicy="no-referrer" onerror="this.src='https://via.placeholder.com/300'">
-                            </div>
-                        `;
+                    let mediaGridHtml = '';
+                    item.media.forEach(m => {
+                        if (m.type === 'video') {
+                            // 🎬 구글 드라이브 동영상 플레이어 타일
+                            mediaGridHtml += `
+                                <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-md col-span-2">
+                                    <iframe src="${m.url}" class="w-full h-full" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            `;
+                        } else {
+                            // 🖼️ 사진 타일
+                            mediaGridHtml += `
+                                <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
+                                    <img src="${m.url}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300'">
+                                </div>
+                            `;
+                        }
                     });
 
                     eventSection.innerHTML = `
@@ -107,8 +118,8 @@
                             <i class="${iconClass}"></i>
                             <h3 class="font-bold text-lg">${item.event}</h3>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            ${imgGridHtml}
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+                            ${mediaGridHtml}
                         </div>
                     `;
                     container.appendChild(eventSection);
@@ -117,8 +128,8 @@
                 setLanguage(localStorage.getItem('bbg-lang') || 'id');
 
             } catch (error) {
-                console.error("Gallery Render Failed:", error);
-                container.innerHTML = '<div class="text-center text-sm text-red-400 py-12">⚠️ Gagal memuat galeri. Periksa konfigurasi URL API.</div>';
+                console.error("Gallery Load Error:", error);
+                container.innerHTML = '<div class="text-center text-sm text-red-400 py-12">⚠️ 갤러리를 불러오지 못했습니다. 설정 주소를 확인해 주세요.</div>';
             }
         }
 
